@@ -62,12 +62,13 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macOS-latest
-          - windows-latest
+         # - macOS-latest
+         # - windows-latest
 
     steps:
       - uses: actions/checkout@v2
-
+      - name: Install packages
+        run: sudo apt update && sudo apt install libasound2 libasound2-dev libudev-dev
       - name: Install toolchain
         uses: actions-rs/toolchain@v1
         with:
